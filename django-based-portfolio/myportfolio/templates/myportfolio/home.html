@@ -1,0 +1,99 @@
+{% extends "myportfolio/base.html" %}
+{% block title %} Welcome! {% endblock %}
+
+{% block content %}
+
+<header>
+        <div class="container">
+            <img src="#" alt="Profile Picture" class="profile-pic">
+            <h1><span id="typed-name"></span></h1>
+            <p class="tagline">Programmer | Software Engineer | Student</p>
+            <div class="social-media">
+                <a href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin-square" style="font-size:36px;color:#C0FF6B"></i>
+                </a>
+                <a href="https://github.com" target="_blank"><i class="fa fa-github-square" style="font-size:36px;color:#C0FF6B"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px;color:#C0FF6B"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hi, My name is Vashu, and I am a passionate software development enthusiast. I enjoy creating a wide range of applications, including websites, web apps, CLI tools and games, as long as they serve a meaningful purpose. My journey in software development has equipped me with a solid understanding of various languages, OOP, problem-solving skills, and the ability to quickly learn new technologies. I am dedicated to building impactful softwares and continuously expanding my expertise.   </p>
+            </div>
+        </section>
+        <section class="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skill-list">
+                    <div class="skill">
+                        <h3>Programming Languages</h3>
+                        <ul>
+                            {% for lang in skills %}
+                            {% if lang.language %}
+                            <li>- {{ lang.language }}</li>
+                            {%endif%}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <h3>Frameworks, Tools and Libraries</h3>
+                        <ul>
+                            {% for lib in skills %}
+                            {% if lib.libraries %}
+                            <li>- {{ lib.libraries}}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <h3>Databases</h3>
+                        <ul>
+                            {% for db in skills %}
+                            {% if db.database %}
+                            <li>- {{ db.database }}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill">
+                        <h3>Data Visualization and Analysis</h3>
+                        <ul>
+                            {% for ML in skills %}
+                            {% if ML.ml%}
+                            <li>- {{ ML.ml }}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-list">
+                    {% for project in projects %}
+                    <div class="project">
+                        <h3>{{project.title}}</h3>
+                        <p>{{project.description}}</p>
+                        {% if project.link %}
+                        <a href="{{project.link}}"> Click Here For Demo </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Vashu Balyan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+{% endblock %}
